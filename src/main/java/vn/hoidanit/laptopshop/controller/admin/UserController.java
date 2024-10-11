@@ -22,7 +22,6 @@ import vn.hoidanit.laptopshop.service.UserService;
 public class UserController {
     private final UserService userService;
     private final UploadFileService uploadFileService;
-
     private final PasswordEncoder passwordEncoder;
 
     public UserController(UserService userService, UploadFileService uploadFileService,
