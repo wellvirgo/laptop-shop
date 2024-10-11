@@ -13,44 +13,67 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
             integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
             crossorigin="anonymous"></script>
+        <link href="/css/styles.css" rel="stylesheet" />
+        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
 
     <body>
-        <div class="container mt-5">
-            <div class="row">
-                <div class="col-12 mx-auto">
-                    <div class="d-flex justify-content-between">
-                        <h3>Table users</h3>
-                        <a href="/admin/user/create" class="btn btn-primary">Create new user</a>
+        <jsp:include page="../layout/header.jsp" />
+        <div id="layoutSidenav">
+            <jsp:include page="../layout/sidebar.jsp" />
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid px-4">
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="/admin/user">Dashboard</a></li>
+                            <li class="breadcrumb-item active">User</li>
+                        </ol>
+                        <div class="mt-5">
+                            <div class="row">
+                                <div class="col-12 mx-auto">
+                                    <div class="d-flex justify-content-between">
+                                        <h3>Table users</h3>
+                                        <a href="/admin/user/create" class="btn btn-primary">Create new user</a>
+                                    </div>
+                                    <hr>
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Full Name</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="user" items="${userList}">
+                                                <tr>
+                                                    <th>${user.getId()}</th>
+                                                    <td>${user.getEmail()}</td>
+                                                    <td>${user.getFullName()}</td>
+                                                    <td>
+                                                        <a href="/admin/user/${user.getId()}"
+                                                            class="btn btn-success">View</a>
+                                                        <a href="/admin/user/update/${user.getId()}"
+                                                            class="btn btn-warning">Update</a>
+                                                        <a href="/admin/user/delete/${user.getId()}"
+                                                            class="btn btn-danger">Delete</a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <hr>
-                    <table class="table table-hover table-bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">Email</th>
-                                <th scope="col">Full Name</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach var="user" items="${userList}">
-                                <tr>
-                                    <th>${user.getId()}</th>
-                                    <td>${user.getEmail()}</td>
-                                    <td>${user.getFullname()}</td>
-                                    <td>
-                                        <a href="/admin/user/${user.getId()}" class="btn btn-success">View</a>
-                                        <a href="/admin/user/update/${user.getId()}" class="btn btn-warning">Update</a>
-                                        <a href="/admin/user/delete/${user.getId()}" class="btn btn-danger">Delete</a>
-                                    </td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
+                </main>
+                <jsp:include page="../layout/footer.jsp" />
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+            crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
     </body>
 
     </html>
