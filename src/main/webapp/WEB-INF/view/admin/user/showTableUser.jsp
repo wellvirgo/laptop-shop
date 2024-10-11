@@ -24,6 +24,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
+                        <h1 style="color: #0d6efd;">MANAGE USERS</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="/admin/user">Dashboard</a></li>
                             <li class="breadcrumb-item active">User</li>
@@ -42,6 +43,7 @@
                                                 <th scope="col">ID</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Full Name</th>
+                                                <th scope="col">Role</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -51,6 +53,7 @@
                                                     <th>${user.getId()}</th>
                                                     <td>${user.getEmail()}</td>
                                                     <td>${user.getFullName()}</td>
+                                                    <td>${user.getRole().getName()}</td>
                                                     <td>
                                                         <a href="/admin/user/${user.getId()}"
                                                             class="btn btn-success">View</a>
@@ -73,7 +76,7 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
             crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
+        <script src="/js/scripts.js"></script>
     </body>
 
     </html>
