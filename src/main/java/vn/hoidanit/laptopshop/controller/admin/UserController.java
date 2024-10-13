@@ -2,10 +2,11 @@ package vn.hoidanit.laptopshop.controller.admin;
 
 import java.util.List;
 
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import jakarta.validation.Valid;
 import vn.hoidanit.laptopshop.domain.Role;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.UploadFileService;
@@ -85,18 +87,25 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/create")
-    public String createUser(Model model, @ModelAttribute User newUser,
-            @RequestParam("avatarFile") MultipartFile file) {
+    public String createUser(Model model, @ModelAttribute(name = "newUser") @Valid User newUser,
+            BindingResult newUserBindingResult, @RequestParam("avatarFile") MultipartFile file) {
         String avatar = this.uploadFileService.handleSaveUploadFile(file, "avatars");
         String hashPassword = this.passwordEncoder.encode(newUser.getPassword());
         Role role = this.userService.getRoleByName(newUser.getRole().getName());
-
-        // set avatar, hashPassword, role to save user into database
-        newUser.setAvatar(avatar);
-        newUser.setPassword(hashPassword);
-        newUser.setRole(role);
-        // save user
-        this.userService.saveUser(newUser);
+        List<FieldError> errList = newUserBindingResult.getFieldErrors();
+        for (FieldError err : errList) {
+            System.out.println(err.getField() + " -- " + err.getDefaultMessage());
+        }
+        if (newUserBindingResult.hasErrors()) {
+            return "/admin/user/create";
+        } else {
+            // set avatar, hashPassword, role to save user into database
+            newUser.setAvatar(avatar);
+            newUser.setPassword(hashPassword);
+            newUser.setRole(role);
+            // save user
+            this.userService.saveUser(newUser);
+        }
         return "redirect:/admin/user";
     }
 }

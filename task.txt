@@ -1,1 +1,2 @@
 1. Update avatar and role of user
+2. Validate when update user

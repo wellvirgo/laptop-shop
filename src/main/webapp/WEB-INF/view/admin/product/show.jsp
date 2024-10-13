@@ -20,12 +20,36 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1>Product</h1>
+                        <h1 style="color: orange;">MANAGE PRODUCTS</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="/admin/user">Dashboard</a></li>
                             <li class="breadcrumb-item active">Product</li>
                         </ol>
-                    </div>
+                        <div class="mt-5">
+                            <div class="row">
+                                <div class="col-12 mx-auto">
+                                    <div class="d-flex justify-content-between">
+                                        <h3>Table products</h3>
+                                        <a href="/admin/product/create" class="btn btn-primary">Create new
+                                            product</a>
+                                    </div>
+                                    <hr>
+                                    <table class="table table-hover table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Factory</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                 </main>
                 <jsp:include page="../layout/footer.jsp" />
             </div>
