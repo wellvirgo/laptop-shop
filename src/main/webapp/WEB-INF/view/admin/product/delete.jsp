@@ -5,7 +5,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Delete user</title>
+        <title>Delete product</title>
 
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
@@ -21,15 +21,15 @@
         <div class="container mt-5">
             <div class="row">
                 <div class="col-md-6 col-12 mx-auto">
-                    <h1>Delete user ${id}</h1>
+                    <h1>Delete product ${id}</h1>
                     <hr>
-                    <form:form method="post" action="/admin/user/delete" modelAttribute="currentUser">
+                    <form:form method="post" action="/admin/product/delete" modelAttribute="currentProduct">
                         <div class="mb-3" style="display: none;">
                             <label for="userId" class="form-label">ID</label>
                             <form:input type="text" class="form-control" id="userId" path="id" />
                         </div>
                         <div class="alert alert-danger" role="alert">
-                            Do you want delete this user?
+                            Do you want delete ${currentProduct.getName()}?
                         </div>
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form:form>
