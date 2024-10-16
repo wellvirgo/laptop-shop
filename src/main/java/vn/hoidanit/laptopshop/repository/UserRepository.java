@@ -8,4 +8,8 @@ import vn.hoidanit.laptopshop.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     public User findById(long id);
+
+    public boolean existsByEmail(String email);
+
+    public User findByEmail(String email);
 }

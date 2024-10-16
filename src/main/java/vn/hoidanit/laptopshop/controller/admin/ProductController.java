@@ -32,13 +32,13 @@ public class ProductController {
     public String getProductPage(Model model) {
         List<Product> products = this.productService.getProducts();
         model.addAttribute("products", products);
-        return "/admin/product/show";
+        return "admin/product/show";
     }
 
     @GetMapping("/admin/product/create")
     public String getCreateProductPage(Model model) {
         model.addAttribute("newProduct", new Product());
-        return "/admin/product/create";
+        return "admin/product/create";
     }
 
     @PostMapping("/admin/product/create")
@@ -64,7 +64,7 @@ public class ProductController {
         Product currentProduct = this.productService.getProduct(id);
         model.addAttribute("currentProduct", currentProduct);
         model.addAttribute("id", id);
-        return "/admin/product/view";
+        return "admin/product/view";
     }
 
     @GetMapping("/admin/product/update/{id}")
@@ -72,7 +72,7 @@ public class ProductController {
         Product currentProduct = this.productService.getProduct(id);
         model.addAttribute("id", id);
         model.addAttribute("currentProduct", currentProduct);
-        return "/admin/product/update";
+        return "admin/product/update";
     }
 
     @PostMapping("/admin/product/update")
@@ -83,7 +83,7 @@ public class ProductController {
             System.out.println(error.getField() + " -- " + error.getDefaultMessage());
         }
         if (bindingResult.hasErrors()) {
-            return "/admin/product/update";
+            return "admin/product/update";
         } else {
             Product updatedProduct = this.productService.getProduct(currentProduct.getId());
             if (!file.isEmpty()) {
@@ -110,7 +110,7 @@ public class ProductController {
         model.addAttribute("id", id);
         model.addAttribute("currentProduct", currentProduct);
 
-        return "/admin/product/delete";
+        return "admin/product/delete";
     }
 
     @PostMapping("/admin/product/delete")

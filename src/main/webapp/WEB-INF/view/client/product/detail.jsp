@@ -76,9 +76,8 @@
                 <div class="container-fluid page-header py-5">
                     <h1 class="text-center text-white display-6">Shop Detail</h1>
                     <ol class="breadcrumb justify-content-center mb-0">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#">Pages</a></li>
-                        <li class="breadcrumb-item active text-white">Shop Detail</li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active text-white">Product Detail</li>
                     </ol>
                 </div>
                 <!-- Single Page Header End -->
@@ -163,31 +162,31 @@
                                             <ul class="list-unstyled fruite-categorie">
                                                 <li>
                                                     <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Apples</a>
+                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>APPLE</a>
                                                         <span>(3)</span>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Oranges</a>
+                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>HP</a>
                                                         <span>(5)</span>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Strawbery</a>
+                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>ASUS</a>
                                                         <span>(2)</span>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Banana</a>
+                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>LENOVO</a>
                                                         <span>(8)</span>
                                                     </div>
                                                 </li>
                                                 <li>
                                                     <div class="d-flex justify-content-between fruite-name">
-                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>Pumpkin</a>
+                                                        <a href="#"><i class="fas fa-apple-alt me-2"></i>DELL</a>
                                                         <span>(5)</span>
                                                     </div>
                                                 </li>

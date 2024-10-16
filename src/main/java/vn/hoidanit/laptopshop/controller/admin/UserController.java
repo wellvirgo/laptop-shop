@@ -37,7 +37,7 @@ public class UserController {
     public String getUserPage(Model model) {
         List<User> userList = this.userService.getListUsers();
         model.addAttribute("userList", userList);
-        return "/admin/user/showTableUser";
+        return "admin/user/showTableUser";
     }
 
     @GetMapping("/admin/user/{id}")
@@ -45,13 +45,13 @@ public class UserController {
         User user = this.userService.getUserById(id);
         model.addAttribute("user", user);
         model.addAttribute("id", id);
-        return "/admin/user/detail";
+        return "admin/user/detail";
     }
 
     @GetMapping("/admin/user/update/{id}")
     public String getUserUpdatePage(Model model, @PathVariable long id) {
         model.addAttribute("currentUser", this.userService.getUserById(id));
-        return "/admin/user/update";
+        return "admin/user/update";
     }
 
     @PostMapping("/admin/user/update")
@@ -71,7 +71,7 @@ public class UserController {
         currentUser = this.userService.getUserById(id);
         model.addAttribute("currentUser", currentUser);
         model.addAttribute("id", id);
-        return "/admin/user/delete";
+        return "admin/user/delete";
     }
 
     @PostMapping("/admin/user/delete")
@@ -83,7 +83,7 @@ public class UserController {
     @GetMapping("/admin/user/create")
     public String getCreateUserPage(Model model) {
         model.addAttribute("newUser", new User());
-        return "/admin/user/create";
+        return "admin/user/create";
     }
 
     @PostMapping("/admin/user/create")
@@ -97,7 +97,7 @@ public class UserController {
             System.out.println(err.getField() + " -- " + err.getDefaultMessage());
         }
         if (newUserBindingResult.hasErrors()) {
-            return "/admin/user/create";
+            return "admin/user/create";
         } else {
             // set avatar, hashPassword, role to save user into database
             newUser.setAvatar(avatar);
