@@ -15,6 +15,17 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
             integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
             crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(() => {
+                const imgFile = $("#avatarFile");
+                imgFile.change(function (e) {
+                    const imgURL = URL.createObjectURL(e.target.files[0]);
+                    $("#imgPreview").attr("src", imgURL);
+                    $("#imgPreview").css({ "display": "block" });
+                });
+            });
+        </script>
     </head>
 
     <body>
@@ -23,7 +34,8 @@
                 <div class="col-md-6 col-12 mx-auto">
                     <h1>Update user</h1>
                     <hr>
-                    <form:form method="post" action="/admin/user/update" modelAttribute="currentUser">
+                    <form:form method="post" action="/admin/user/update" modelAttribute="currentUser"
+                        enctype="multipart/form-data">
                         <div class="mb-3" style="display: none;">
                             <label for="userId" class="form-label">ID</label>
                             <form:input type="text" class="form-control" id="userId" path="id" />
@@ -44,6 +56,21 @@
                         <div class="mb-3">
                             <label for="phone" class="form-label">phone</label>
                             <form:input type="text" class="form-control" id="phone" path="phone" />
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="avatarFile" class="form-label">Avatar</label>
+                            <div class="input-group mb-3">
+                                <input type="file" class="form-control" id="avatarFile" name="avatarFile"
+                                    accept=".png, .jpg, .jpeg">
+                                <label class="input-group-text" for="avatarFile">Upload</label>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="imgPreview" class="form-label">Image preview</label>
+                            <img alt="Image preview" style="max-height: 250px; display: block;" id="imgPreview"
+                                src="/images/avatars/${currentUser.getAvatar()}" />
                         </div>
 
                         <button type="submit" class="btn btn-warning">Update</button>

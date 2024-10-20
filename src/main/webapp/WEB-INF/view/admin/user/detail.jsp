@@ -35,6 +35,10 @@
                             <li class="list-group-item">Phone: ${user.phone} </li>
                             <li class="list-group-item">Email: ${user.email} </li>
                             <li class="list-group-item">Password: ${user.password} </li>
+                            <li class="list-group-item">Avatar<br>
+                                <img src="/images/avatars/${user.avatar}" alt="User's avatar"
+                                    style="display: inline-block; position: relative; width: 200px; height: 200px; overflow: hidden; border-radius: 50%;">
+                            </li>
                         </ul>
                     </div>
                     <a href="/admin/user" class="btn btn-secondary mt-2">Back</a>

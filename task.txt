@@ -1,4 +1,4 @@
-1. Update avatar and role of user
+1. Update avatar and role of user (Done)
 2. Validate when update user
 3. Duplicate img in folders when update them same img
 4. Lost img when error appearance in validation
