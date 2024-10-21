@@ -47,6 +47,14 @@ public class Cart {
         this.sum = sum;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public String toString() {
         return "Cart [id=" + id + ", sum=" + sum + "]";

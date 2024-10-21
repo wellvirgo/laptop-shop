@@ -23,11 +23,11 @@
                                     class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                                     data-bs-toggle="modal" data-bs-target="#searchModal"><i
                                         class="fas fa-search text-primary"></i></button>
-                                <a href="#" class="position-relative me-4 my-auto">
+                                <a href="/cart" class="position-relative me-4 my-auto">
                                     <i class="fa fa-shopping-bag fa-2x"></i>
                                     <span
                                         class="position-absolute bg-secondary rounded-circle d-flex align-items-center justify-content-center text-dark px-1"
-                                        style="top: -5px; left: 15px; height: 20px; min-width: 20px;">3</span>
+                                        style="top: -5px; left: 15px; height: 20px; min-width: 20px;">${sessionScope.sumInCart}</span>
                                 </a>
                                 <div class="dropdown my-auto">
                                     <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
@@ -36,8 +36,10 @@
                                     </a>
                                     <ul class="dropdown-menu dropdown-menu-end mt-2">
                                         <li class="d-flex align-items-center flex-column">
-                                            <img style="width: 150px;height: 150px;border-radius: 50%; overflow: hidden;"
-                                                src="/images/avatars/${sessionScope.avatarFile}" alt="">
+                                            <c:if test="${sessionScope.avatarFile.length()>0}">
+                                                <img style="width: 150px;height: 150px;border-radius: 50%; overflow: hidden;"
+                                                    src="/images/avatars/${sessionScope.avatarFile}" alt="">
+                                            </c:if>
                                             <div class="text-center my-3" style="color: #81c408;">
                                                 ${sessionScope.fullName}
                                             </div>
@@ -64,7 +66,7 @@
                                     class="btn-search btn border border-secondary btn-md-square rounded-circle bg-white me-4"
                                     data-bs-toggle="modal" data-bs-target="#searchModal"><i
                                         class="fas fa-search text-primary"></i></button>
-                                <a href="/login" class="my-auto btn btn-primary">Login</a>
+                                <a href="/login" class="my-auto btn btn-primary" style="color: #fff;">Login</a>
 
                             </div>
                         </c:if>

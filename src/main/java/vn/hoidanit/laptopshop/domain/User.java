@@ -33,7 +33,7 @@ public class User {
     private String password;
 
     @NotNull
-    @Size(min = 6, message = "password need to be greater than 6 char")
+    @Size(min = 6, message = "fullname need to be greater than 6 char")
     private String fullName;
     private String address;
     private String phone;
@@ -134,6 +134,14 @@ public class User {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+
+    public void setCart(Cart cart) {
+        this.cart = cart;
     }
 
     @Override

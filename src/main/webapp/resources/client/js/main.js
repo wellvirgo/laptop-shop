@@ -133,19 +133,65 @@
 
     // Product Quantity
     $('.quantity button').on('click', function () {
+        let change = 0;
         var button = $(this);
         var oldValue = button.parent().parent().find('input').val();
         if (button.hasClass('btn-plus')) {
             var newVal = parseFloat(oldValue) + 1;
+            change = 1;
         } else {
-            if (oldValue > 0) {
+            if (oldValue > 1) {
                 var newVal = parseFloat(oldValue) - 1;
+                change = -1;
             } else {
-                newVal = 0;
+                newVal = 1;
             }
         }
-        button.parent().parent().find('input').val(newVal);
+        const input = button.parent().parent().find('input');
+        input.val(newVal);
+
+        // get id and price of product
+        const idOfElement = input.attr("data-cart-detail-id");
+        const priceOfElement = input.attr("data-cart-detail-price");
+
+        const totalElement = $(`p[data-cart-detail-id='${idOfElement}']`);
+        if (totalElement) {
+            let newTotal = +priceOfElement * newVal;
+            totalElement.text(formatCurrency(newTotal.toFixed(2)));
+        }
+
+        // update cartTotal
+        let totalElements = $(`p[data-cart-total]`);
+        if (totalElements && totalElements.length) {
+            let currentCartTotal = totalElements.first().attr('data-cart-total');
+            let newTotal = +currentCartTotal;
+            if (change === 0) {
+                newTotal = +currentCartTotal
+            } else {
+                newTotal = change * (+priceOfElement) + (+currentCartTotal);
+            }
+            // reset change
+            change = 0;
+            totalElements?.each(function (index, element) {
+                // update text
+                $(totalElements[index]).text(formatCurrency(newTotal.toFixed(2)) + ' VND');
+                // update attribute
+                $(totalElements[index]).attr('data-cart-total', newTotal);
+            });
+        }
+
     });
+
+    function formatCurrency(value) {
+        const formatter = new Intl.NumberFormat('vi-VN', {
+            style: 'decimal',
+            minimumFractionDigits: 0
+        });
+
+        let formatted = formatter.format(value);
+        formatted = formatted.replace(/\./g, ',');
+        return formatted;
+    }
 
 })(jQuery);
 
