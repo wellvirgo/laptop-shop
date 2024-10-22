@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
 import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.ProductService;
@@ -28,13 +29,16 @@ public class CartController {
     public String getCartDetailPage(HttpServletRequest request, Model model) {
         HttpSession session = request.getSession(false);
         User user = this.userService.getUserById((long) session.getAttribute("id"));
-        List<CartDetail> cartDetails = this.productService.getCardDetails(user.getCart());
+        Cart cart = this.productService.getCartByUser(user);
+        List<CartDetail> cartDetails = this.productService.getCartDetails(cart);
         double cartTotal = 0;
         for (CartDetail cd : cartDetails) {
             cartTotal += (cd.getPrice() * cd.getQuantity());
         }
         model.addAttribute("cardDetailList", cartDetails);
         model.addAttribute("cartTotal", cartTotal);
+        model.addAttribute("cart", cart);
         return "client/cart/show";
     }
+
 }

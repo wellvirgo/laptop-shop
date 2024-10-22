@@ -150,6 +150,10 @@
         const input = button.parent().parent().find('input');
         input.val(newVal);
 
+        const index = input.attr("data-cart-detail-index");
+        const element = document.getElementById(`cartDetails${index}.quantity`);
+        $(element).val(newVal);
+
         // get id and price of product
         const idOfElement = input.attr("data-cart-detail-id");
         const priceOfElement = input.attr("data-cart-detail-price");

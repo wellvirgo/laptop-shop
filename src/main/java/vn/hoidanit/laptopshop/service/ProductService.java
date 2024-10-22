@@ -1,6 +1,7 @@
 package vn.hoidanit.laptopshop.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -88,8 +89,12 @@ public class ProductService {
         }
     }
 
-    public List<CartDetail> getCardDetails(Cart cart) {
+    public List<CartDetail> getCartDetails(Cart cart) {
         return this.cartDetailRepository.findAllByCart(cart);
+    }
+
+    public Cart getCartByUser(User user) {
+        return this.cartRepository.findByUser(user);
     }
 
     public void handleDeleteProductFromCart(long cartDetailId, HttpSession session) {
@@ -104,6 +109,16 @@ public class ProductService {
         } else if (cart.getSum() == 1) {
             this.cartRepository.delete(cart);
             session.setAttribute("sumInCart", 0);
+        }
+    }
+
+    public void handleUpdateCartBeforeCheckOut(List<CartDetail> cartDetails) {
+        for (CartDetail cartDetail : cartDetails) {
+            CartDetail currentCartDetail = this.cartDetailRepository.findById(cartDetail.getId());
+            if (currentCartDetail != null) {
+                currentCartDetail.setQuantity(cartDetail.getQuantity());
+                this.cartDetailRepository.save(currentCartDetail);
+            }
         }
     }
 }
