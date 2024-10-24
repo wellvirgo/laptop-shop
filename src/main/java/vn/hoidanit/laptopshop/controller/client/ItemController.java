@@ -12,6 +12,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import vn.hoidanit.laptopshop.domain.Cart;
 import vn.hoidanit.laptopshop.domain.CartDetail;
+import vn.hoidanit.laptopshop.domain.User;
 import vn.hoidanit.laptopshop.service.ProductService;
 import java.util.List;
 import java.util.ArrayList;
@@ -35,7 +36,7 @@ public class ItemController {
         long productId = id;
         HttpSession session = request.getSession(false);
         String username = session.getAttribute("email") + "";
-        this.productService.handleAddProductToCart(productId, username, session);
+        this.productService.handleAddProductToCart(productId, username, session, 1);
         return "redirect:/";
     }
 
@@ -66,7 +67,20 @@ public class ItemController {
             @RequestParam("receiverName") String receiverName,
             @RequestParam("receiverAddress") String receiverAddress,
             @RequestParam("receiverPhone") String receiverPhone) {
+        HttpSession session = request.getSession(false);
+        User user = new User();
+        long userId = (long) session.getAttribute("id");
+        user.setId(userId);
+        this.productService.handleCreateOrder(user, session, receiverName, receiverAddress, receiverPhone);
+        return "client/cart/thank";
+    }
 
-        return "redirect:/";
+    @PostMapping("/add-product-from-view-detail/{id}")
+    public String addProductFromViewDetail(@PathVariable long id, @RequestParam("quantity") long quantity,
+            HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        String email = session.getAttribute("email") + "";
+        this.productService.handleAddProductToCart(id, email, session, quantity);
+        return "redirect:/cart";
     }
 }

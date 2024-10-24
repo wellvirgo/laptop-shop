@@ -105,7 +105,8 @@
                                                         <div class="rounded position-relative fruite-item">
                                                             <div class="fruite-img">
                                                                 <img src="/images/products/${product.image}"
-                                                                    class="img-fluid w-100 rounded-top" alt="">
+                                                                    class="img-fluid w-100 rounded-top" alt=""
+                                                                    style="height: 183px;">
                                                             </div>
                                                             <div
                                                                 class="p-4 border border-secondary border-top-0 rounded-bottom">

@@ -45,7 +45,7 @@
                                             </div>
                                         </li>
                                         <li><a class="dropdown-item" href="#">Account management</a></li>
-                                        <li><a class="dropdown-item" href="#">Purchase history</a></li>
+                                        <li><a class="dropdown-item" href="/history-order">Purchase history</a></li>
                                         <li>
                                             <hr class="dropdown-divider">
                                         </li>
