@@ -1,5 +1,7 @@
 package vn.hoidanit.laptopshop.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -13,4 +15,6 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     public Order findById(long id);
 
     public List<Order> findAllByUser(User user);
+
+    public Page<Order> findAll(Pageable pageable);
 }
