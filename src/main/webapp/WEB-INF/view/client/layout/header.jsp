@@ -30,7 +30,7 @@
                                         style="top: -5px; left: 15px; height: 20px; min-width: 20px;">${sessionScope.sumInCart}</span>
                                 </a>
                                 <div class="dropdown my-auto">
-                                    <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
+                                    <a href="" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"
                                         id="dropdownMenuLink" role="button">
                                         <i class="fas fa-user fa-2x"></i>
                                     </a>
