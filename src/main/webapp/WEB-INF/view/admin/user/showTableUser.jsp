@@ -39,7 +39,7 @@
                                     <hr>
                                     <table class="table table-hover table-bordered">
                                         <thead>
-                                            <tr>
+                                            <tr class="text-center">
                                                 <th scope="col">ID</th>
                                                 <th scope="col">Email</th>
                                                 <th scope="col">Full Name</th>
