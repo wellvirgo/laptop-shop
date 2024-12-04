@@ -223,11 +223,15 @@ public class ProductService {
                 orderDetail.setQuantity(cartDetail.getQuantity());
                 orderDetail.setOrder(order);
                 this.orderDetailRepository.save(orderDetail);
-            }
-
-            for (CartDetail cartDetail : cartDetails) {
+                // Minus quantity of product in stock
+                Product product = cartDetail.getProduct();
+                product.setQuantity(product.getQuantity() - orderDetail.getQuantity());
+                product.setSold(orderDetail.getQuantity());
+                this.productRepository.save(product);
+                // Delete cartDetail after create orderDetail
                 this.cartDetailRepository.deleteById(cartDetail.getId());
             }
+
             this.cartRepository.deleteById(cart.getId());
 
             session.setAttribute("sumInCart", 0);

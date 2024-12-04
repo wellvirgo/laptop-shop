@@ -42,7 +42,7 @@ public class ProductController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Pageable pageable = PageRequest.of(page - 1, 2);
+        Pageable pageable = PageRequest.of(page - 1, 5);
         Page<Product> productList = this.productService.getProducts(pageable);
         List<Product> products = productList.getContent();
         model.addAttribute("currentPage", page);

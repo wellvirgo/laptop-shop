@@ -48,7 +48,7 @@ public class UserController {
             e.printStackTrace();
         }
 
-        Pageable pageable = PageRequest.of(page - 1, 4);
+        Pageable pageable = PageRequest.of(page - 1, 5);
         Page<User> users = this.userService.getListUser(pageable);
         List<User> userList = users.getContent();
         model.addAttribute("userList", userList);

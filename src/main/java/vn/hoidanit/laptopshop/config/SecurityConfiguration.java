@@ -46,7 +46,6 @@ public class SecurityConfiguration {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setPasswordEncoder(passwordEncoder);
         authProvider.setUserDetailsService(userDetailsService);
-        // authProvider.setHideUserNotFoundExceptions(false);
         return authProvider;
     }
 
@@ -93,7 +92,7 @@ public class SecurityConfiguration {
                         .anyRequest().authenticated())
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
-                        .failureUrl("/login?x")
+                        .failureUrl("/login?error")
                         .successHandler(customSuccessHandler())
                         .permitAll())
                 .exceptionHandling(ex -> ex.accessDeniedPage("/access-denied"))
