@@ -38,6 +38,8 @@
                         <hr>
                         <form:form method="post" action="/admin/user/create" modelAttribute="newUser" class="row"
                             enctype="multipart/form-data">
+                            <input class="form-control" type="hidden" name="${_csrf.parameterName}"
+                                value="${_csrf.token}" />
                             <div class="mb-3 col-12 col-md-6">
                                 <c:set var="errorEmail">
                                     <form:errors path="email" />

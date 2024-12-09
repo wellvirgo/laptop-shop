@@ -38,6 +38,8 @@
                                             <div class="card-body">
                                                 <form:form method="post" action="/register"
                                                     modelAttribute="registerUser">
+                                                    <input class="form-control" type="hidden"
+                                                        name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                     <c:set var="errConfirmPassword">
                                                         <form:errors path="confirmPassword"
                                                             cssClass="invalid-feedback" />
@@ -67,6 +69,25 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="row mb-3">
+                                                        <div class="col-md-6">
+                                                            <div class="form-floating mb-3 mb-md-0">
+                                                                <form:input class="form-control" id="phone" type="text"
+                                                                    path="phone" placeholder="Enter your phone" />
+                                                                <label for="phone">Phone</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row mb-3">
+                                                        <div class="col-md-12">
+                                                            <div class="form-floating mb-3 mb-md-0">
+                                                                <form:input class="form-control" id="address"
+                                                                    type="text" path="address"
+                                                                    placeholder="Enter your address" />
+                                                                <label for="address">Address</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                     <div class="form-floating mb-3">
                                                         <form:input
                                                             class="form-control ${not empty errEmail?'is-invalid':''}"
@@ -79,7 +100,7 @@
                                                         <div class="col-md-6">
                                                             <div class="form-floating mb-3 mb-md-0">
                                                                 <form:input
-                                                                    class="form-control ${not empty errConfirmPassword?'is-invalid':''}"
+                                                                    class="form-control ${not empty errPassword?'is-invalid':''}"
                                                                     id="inputPassword" type="password"
                                                                     placeholder="Create a password" path="password" />
                                                                 <label for="inputPassword">Password</label>

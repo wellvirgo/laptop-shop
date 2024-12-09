@@ -67,12 +67,12 @@ public class HomepageController {
             e.printStackTrace();
         }
 
-        Pageable pageable = PageRequest.of(page - 1, 3);
+        Pageable pageable = PageRequest.of(page - 1, 6);
         if (productCriteriaDTO.getSort() != null && productCriteriaDTO.getSort().isPresent()) {
             if (productCriteriaDTO.getSort().get().equals("gia-giam-dan")) {
-                pageable = PageRequest.of(page - 1, 3, Sort.by(Product_.PRICE).descending());
+                pageable = PageRequest.of(page - 1, 6, Sort.by(Product_.PRICE).descending());
             } else if (productCriteriaDTO.getSort().get().equals("gia-tang-dan")) {
-                pageable = PageRequest.of(page - 1, 3, Sort.by(Product_.PRICE).ascending());
+                pageable = PageRequest.of(page - 1, 6, Sort.by(Product_.PRICE).ascending());
             }
         }
 

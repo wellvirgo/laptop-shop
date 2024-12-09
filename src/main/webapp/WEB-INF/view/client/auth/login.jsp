@@ -51,11 +51,6 @@
                                                             name="${_csrf.parameterName}" value="${_csrf.token}" />
                                                     </div>
 
-                                                    <div class="mb-3">
-                                                        <label>Remember me</label>
-                                                        <input id="remember-me" type="checkbox" name="remember-me" />
-                                                    </div>
-
                                                     <div class="d-flex align-items-center mt-4 mb-0">
                                                         <button type="submit" id="btn-login"
                                                             class="btn btn-primary btn-block">Login</button>

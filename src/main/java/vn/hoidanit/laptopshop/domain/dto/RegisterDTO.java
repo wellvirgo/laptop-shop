@@ -12,6 +12,8 @@ public class RegisterDTO {
     @StrongPassword
     private String password;
     private String confirmPassword;
+    private String address;
+    private String phone;
 
     public String getFirstName() {
         return firstName;
@@ -51,6 +53,22 @@ public class RegisterDTO {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
 }

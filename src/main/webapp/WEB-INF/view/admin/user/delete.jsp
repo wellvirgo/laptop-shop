@@ -25,6 +25,8 @@
                     <hr>
                     <form:form method="post" action="/admin/user/delete" modelAttribute="currentUser">
                         <div class="mb-3" style="display: none;">
+                            <input class="form-control" type="hidden" name="${_csrf.parameterName}"
+                                value="${_csrf.token}" />
                             <label for="userId" class="form-label">ID</label>
                             <form:input type="text" class="form-control" id="userId" path="id" />
                         </div>
