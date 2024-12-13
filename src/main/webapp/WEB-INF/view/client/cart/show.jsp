@@ -209,15 +209,20 @@
                                                         varStatus="status">
                                                         <div class="mb-3">
                                                             <div class="form-group">
-                                                                <label for="">Id</label>
-                                                                <form:input class="form-control" type="text"
-                                                                    value="${cartDetail.getId()}"
+                                                                <label
+                                                                    for="product_cartDetails[${status.index}]">Id</label>
+                                                                <form:input class="form-control"
+                                                                    id="product_cartDetails[${status.index}]"
+                                                                    type="text" value="${cartDetail.getId()}"
                                                                     path="cartDetails[${status.index}].id" />
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="">Quantity</label>
-                                                                <form:input class="form-control" type="text"
-                                                                    value="${cartDetail.getQuantity()}"
+                                                                <label
+                                                                    for="quantityOfProduct_cartDetails[${status.index}]">Quantity
+                                                                </label>
+                                                                <form:input class="form-control"
+                                                                    id="quantityOfProduct_cartDetails[${status.index}]"
+                                                                    type="text" value="${cartDetail.getQuantity()}"
                                                                     path="cartDetails[${status.index}].quantity" />
                                                             </div>
                                                         </div>

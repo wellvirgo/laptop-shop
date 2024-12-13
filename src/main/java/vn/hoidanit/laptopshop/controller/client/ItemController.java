@@ -37,7 +37,7 @@ public class ItemController {
         HttpSession session = request.getSession(false);
         String username = session.getAttribute("email") + "";
         this.productService.handleAddProductToCart(productId, username, session, 1);
-        return "redirect:/";
+        return "redirect:/products";
     }
 
     @PostMapping("/delete-product-from-cart/{id}")

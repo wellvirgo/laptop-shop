@@ -1,6 +1,8 @@
 package vn.hoidanit.laptopshop.service;
 
 import java.util.List;
+
+import org.springframework.data.domain.Limit;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
@@ -47,6 +49,10 @@ public class ProductService {
 
     public List<Product> getProducts() {
         return this.productRepository.findAll();
+    }
+
+    public List<Product> getTopProducts(int n) {
+        return productRepository.findByOrderBySoldDesc(Limit.of(n));
     }
 
     public Page<Product> getProductsWithSpec(Pageable pageable, ProductCriteriaDTO productCriteriaDTO) {

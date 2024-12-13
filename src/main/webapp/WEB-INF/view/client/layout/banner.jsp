@@ -4,9 +4,9 @@
         <div class="container py-5">
             <div class="row g-5 align-items-center">
                 <div class="col-md-12 col-lg-7">
-                    <h4 class="mb-5 text-secondary">Sản phẩm chính hãng 100%</h4>
-                    <h1 class="mb-3 display-3 text-primary">Laptop cao cấp</h1>
-                    <h1 class="mb-5 display-3 text-primary">Giá rẻ vô địch</h1>
+                    <h4 class="mb-5 text-secondary">100% Authentic Products</h4>
+                    <h1 class="mb-3 display-3 text-primary">Top-Tier Laptop</h1>
+                    <h1 class="mb-5 display-3 text-primary">No Price Worries</h1>
                 </div>
                 <div class="col-md-12 col-lg-5">
                     <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
@@ -19,7 +19,7 @@
                             <div class="carousel-item rounded">
                                 <img src="/client/img/hero-img-3.png" class="img-fluid w-100 h-100 rounded"
                                     alt="Second slide">
-                                <a href="#" class="btn px-4 py-2 text-white rounded">Văn phòng</a>
+                                <a href="#" class="btn px-4 py-2 text-white rounded">Office</a>
                             </div>
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselId"

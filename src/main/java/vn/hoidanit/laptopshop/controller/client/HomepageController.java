@@ -35,7 +35,7 @@ public class HomepageController {
 
     @GetMapping("/")
     public String getHomePage(Model model) {
-        List<Product> products = this.productService.getProducts();
+        List<Product> products = this.productService.getTopProducts(4);
         model.addAttribute("products", products);
         return "client/homepage/show";
     }
