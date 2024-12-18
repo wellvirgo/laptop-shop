@@ -1,6 +1,0 @@
-1. Update avatar and role of user (Done)
-2. Validate when update user
-3. Duplicate img in folders when update them same img
-4. Lost img when error appearance in validation
-5. Another way to create CartDetailList (video 127/128)
-6. When CartDetailList don't have any item view display a message "" and don't display cart total
